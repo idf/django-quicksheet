@@ -8,12 +8,15 @@ register = template.Library()
 def some_tags(context):
   pass
 
+
 @register.filter
 def markdownify(text):
   """
   GitHub Flavored Markdown 
-  {{ content | markdownify | safe }}
-  $ pip install pygments
-  link to one of the css: https://github.com/richleland/pygments-css
+  Usage:
+    {{ content | markdownify | safe }}
+  Requirements:
+    $ pip install pygments
+    link to one of the css: https://github.com/richleland/pygments-css
   """
   return markdown2.markdown(text, extras=["fenced-code-blocks"], safe_mode=None)
